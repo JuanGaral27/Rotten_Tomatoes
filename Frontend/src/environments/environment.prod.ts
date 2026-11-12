@@ -2,5 +2,5 @@
 export const environment = {
   production: true,
   appName: 'Rotten Tomatoes',
-  apiUrl: 'http://172.16.0.4:3000/api',
+  apiUrl: 'https://rotten-tomatoes-lufu.onrender.com',
 };
