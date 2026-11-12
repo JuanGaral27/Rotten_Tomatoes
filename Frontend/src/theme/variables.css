@@ -1,0 +1,83 @@
+/**
+ * Tema oscuro (negro + naranja) — único lugar donde viven los colores de la app.
+ * Para cambiar la paleta, edita SOLO este archivo.
+ */
+:root {
+  /* Marca */
+  --app-orange: #f47521;
+  --app-orange-light: #ff8f45;
+  --app-orange-dark: #d1600f;
+  --app-orange-rgb: 244, 117, 33;
+
+  /* Superficies */
+  --app-bg: #0a0a0c;
+  --app-surface: #141519;
+  --app-surface-2: #1d1f25;
+  --app-surface-3: #2a2c34;
+  --app-border: #2f313a;
+
+  /* Texto */
+  --app-text: #ffffff;
+  --app-text-muted: #a0a0ab;
+
+  /* Puntajes */
+  --app-score-user: #f47521; /* usuarios */
+  --app-score-critic: #5fd0c6; /* críticos */
+  --app-success: #2ecc71;
+  --app-danger: #ff4d5e;
+
+  --app-radius: 6px;
+  --app-radius-lg: 12px;
+
+  /* ---- Variables de Ionic ---- */
+  --ion-font-family: 'Lato', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --ion-background-color: var(--app-bg);
+  --ion-background-color-rgb: 10, 10, 12;
+  --ion-text-color: var(--app-text);
+  --ion-text-color-rgb: 255, 255, 255;
+
+  --ion-color-primary: #f47521;
+  --ion-color-primary-rgb: 244, 117, 33;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #d7671d;
+  --ion-color-primary-tint: #f58337;
+
+  --ion-color-secondary: #5fd0c6;
+  --ion-color-secondary-rgb: 95, 208, 198;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #54b7ae;
+  --ion-color-secondary-tint: #6fd5cc;
+
+  --ion-color-success: #2ecc71;
+  --ion-color-success-rgb: 46, 204, 113;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #28b463;
+  --ion-color-success-tint: #43d17f;
+
+  --ion-color-danger: #ff4d5e;
+  --ion-color-danger-rgb: 255, 77, 94;
+  --ion-color-danger-contrast: #000000;
+  --ion-color-danger-contrast-rgb: 0, 0, 0;
+  --ion-color-danger-shade: #e04453;
+  --ion-color-danger-tint: #ff5f6f;
+
+  --ion-color-medium: #a0a0ab;
+  --ion-color-medium-rgb: 160, 160, 171;
+  --ion-color-medium-contrast: #000000;
+  --ion-color-medium-contrast-rgb: 0, 0, 0;
+  --ion-color-medium-shade: #8d8d96;
+  --ion-color-medium-tint: #aaaab3;
+
+  --ion-toolbar-background: var(--app-bg);
+  --ion-toolbar-color: var(--app-text);
+  --ion-tab-bar-background: var(--app-surface);
+  --ion-tab-bar-color: var(--app-text-muted);
+  --ion-tab-bar-color-selected: var(--app-orange);
+  --ion-item-background: var(--app-surface);
+  --ion-card-background: var(--app-surface);
+  --ion-border-color: var(--app-border);
+}

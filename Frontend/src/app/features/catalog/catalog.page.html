@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="brand">{{ appName }}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <div class="search-row">
+      <ion-searchbar
+        placeholder="Buscar películas o series"
+        [debounce]="400"
+        (ionInput)="onSearch($event)"
+        [value]="filters().q ?? ''"
+      />
+      <ion-button fill="clear" class="filter-btn" (click)="filtersOpen.set(true)" aria-label="Filtros">
+        <ion-icon slot="icon-only" name="options" />
+        @if (activeFilterCount() > 0) {
+          <span class="badge">{{ activeFilterCount() }}</span>
+        }
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content />
+  </ion-refresher>
+
+  <div class="sort-bar">
+    <ion-segment [value]="filters().sortBy" (ionChange)="onSortBy($event)">
+      @for (option of sortOptions; track option.value) {
+        <ion-segment-button [value]="option.value"><ion-label>{{ option.label }}</ion-label></ion-segment-button>
+      }
+    </ion-segment>
+    <ion-button fill="clear" (click)="toggleOrder()" [attr.aria-label]="'Orden ' + filters().order">
+      <ion-icon slot="icon-only" name="swap-vertical" />
+    </ion-button>
+  </div>
+
+  @if (showSourcePicker()) {
+    <div class="source-bar">
+      <span class="muted">Puntaje de:</span>
+      <ion-segment [value]="filters().ratingSource" (ionChange)="onSource($event)">
+        @for (option of sourceOptions; track option.value) {
+          <ion-segment-button [value]="option.value"><ion-label>{{ option.label }}</ion-label></ion-segment-button>
+        }
+      </ion-segment>
+    </div>
+  }
+
+  <div class="page-padding">
+    @if (loading() && movies().length === 0) {
+      <div class="grid">
+        @for (item of skeletons; track $index) {
+          <div class="skeleton">
+            <ion-skeleton-text [animated]="true" class="poster-skeleton" />
+            <ion-skeleton-text [animated]="true" style="width: 80%" />
+          </div>
+        }
+      </div>
+    } @else if (movies().length === 0) {
+      <app-empty-state
+        icon="film-outline"
+        title="No hay resultados"
+        message="Prueba con otros filtros, o importa películas desde la pestaña Explorar."
+      />
+    } @else {
+      <p class="muted count">{{ total() }} {{ total() === 1 ? 'título' : 'títulos' }}</p>
+      <div class="grid">
+        @for (movie of movies(); track movie.id) {
+          <app-movie-card [movie]="movie" />
+        }
+      </div>
+    }
+  </div>
+
+  <ion-infinite-scroll [disabled]="!hasMore()" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" />
+  </ion-infinite-scroll>
+</ion-content>
+
+<ion-modal
+  [isOpen]="filtersOpen()"
+  [initialBreakpoint]="0.9"
+  [breakpoints]="[0, 0.9]"
+  (didDismiss)="filtersOpen.set(false)"
+>
+  <ng-template>
+    <app-catalog-filters
+      [filters]="filters()"
+      [genres]="genres()"
+      (apply)="applyFilters($event)"
+      (dismiss)="filtersOpen.set(false)"
+    />
+  </ng-template>
+</ion-modal>

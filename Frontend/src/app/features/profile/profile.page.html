@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Mi perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="me">
+    <span class="avatar">{{ initial() }}</span>
+    <div>
+      <h2>{{ user()?.username }}</h2>
+      <p class="muted">{{ user()?.email }}</p>
+      <span class="role" [class.critic]="auth.isCritic()" [class.admin]="auth.isAdmin()">{{ roleLabel() }}</span>
+    </div>
+  </section>
+
+  <ion-segment [value]="tab()" (ionChange)="onTab($event)">
+    <ion-segment-button value="reviews"><ion-label>Mis reseñas ({{ reviewsTotal() }})</ion-label></ion-segment-button>
+    <ion-segment-button value="account"><ion-label>Mi cuenta</ion-label></ion-segment-button>
+  </ion-segment>
+
+  <div class="page-padding">
+    @if (tab() === 'reviews') {
+      @if (reviews().length === 0 && !reviewsLoading()) {
+        <app-empty-state
+          icon="chatbubble-ellipses-outline"
+          title="Aún no has opinado"
+          message="Abre una película o serie y deja tu primera reseña."
+        />
+      } @else {
+        <ul class="list">
+          @for (review of reviews(); track review.id) {
+            <li>
+              @let movie = movieOf(review);
+              @if (movie) {
+                <a class="movie" [routerLink]="['/movie', movie.id]">
+                  <app-poster class="thumb" [src]="movie.poster" [alt]="movie.title" />
+                  <div>
+                    <strong>{{ movie.title }}</strong>
+                    <span class="muted">{{ movie.year ?? '' }}</span>
+                  </div>
+                </a>
+              }
+              <div class="body">
+                <div class="row">
+                  <span class="score">{{ formatScore(review.rating) }}<small>/10</small></span>
+                  <span class="muted date">{{ formatDateTime(review.createdAt) }}</span>
+                  <ion-button size="small" fill="clear" color="danger" (click)="deleteReview(review)" aria-label="Eliminar reseña">
+                    <ion-icon slot="icon-only" name="trash-outline" />
+                  </ion-button>
+                </div>
+                <p class="comment">{{ review.comment }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+        @if (reviewsHasMore()) {
+          <ion-button expand="block" fill="outline" (click)="loadMore()" [disabled]="reviewsLoading()">Cargar más</ion-button>
+        }
+      }
+    } @else {
+      <form [formGroup]="form" (ngSubmit)="save()" novalidate>
+        <div>
+          <ion-input formControlName="username" label="Nombre de usuario" labelPlacement="floating" fill="outline" />
+          @if (form.controls.username.touched && form.controls.username.invalid) {
+            <p class="form-error">
+              {{ usernameRules.MIN_LENGTH }}-{{ usernameRules.MAX_LENGTH }} caracteres: letras, números, punto, guion o guion bajo
+            </p>
+          }
+        </div>
+        <div>
+          <ion-input type="email" formControlName="email" label="Correo electrónico" labelPlacement="floating" fill="outline" />
+          @if (form.controls.email.touched && form.controls.email.invalid) {
+            <p class="form-error">Ingresa un correo válido</p>
+          }
+        </div>
+        <div>
+          <ion-input
+            type="password"
+            formControlName="password"
+            label="Nueva contraseña (opcional)"
+            labelPlacement="floating"
+            fill="outline"
+            autocomplete="new-password"
+          >
+            <ion-input-password-toggle slot="end" />
+          </ion-input>
+          @if (form.controls.password.touched && form.controls.password.invalid) {
+            <p class="form-error">Mínimo {{ passwordRules.MIN_LENGTH }} caracteres</p>
+          }
+        </div>
+
+        <ion-button type="submit" expand="block" [disabled]="saving()">
+          @if (saving()) {
+            <ion-spinner name="crescent" />
+          } @else {
+            Guardar cambios
+          }
+        </ion-button>
+      </form>
+
+      <div class="danger-zone">
+        <ion-button expand="block" fill="outline" color="medium" (click)="logout()">
+          <ion-icon slot="start" name="log-out-outline" /> Cerrar sesión
+        </ion-button>
+        <ion-button expand="block" fill="clear" color="danger" (click)="deleteAccount()">
+          <ion-icon slot="start" name="trash-outline" /> Eliminar mi cuenta
+        </ion-button>
+      </div>
+    }
+  </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Explorar</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Busca cualquier película o serie" [debounce]="500" (ionInput)="onSearch($event)" />
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [value]="type()" (ionChange)="onTypeChange($event)">
+      <ion-segment-button value="all"><ion-label>Todo</ion-label></ion-segment-button>
+      @for (option of typeOptions; track option.value) {
+        <ion-segment-button [value]="option.value"><ion-label>{{ option.label }}</ion-label></ion-segment-button>
+      }
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (searching() && results().length === 0) {
+    <div class="center"><ion-spinner name="crescent" /></div>
+  } @else if (!searched()) {
+    <app-empty-state
+      icon="compass-outline"
+      title="Encuentra películas y series reales"
+      message="Escribe un título. Al abrir uno, lo guardamos en tu base de datos para que todos puedan puntuarlo."
+    />
+  } @else if (results().length === 0) {
+    <app-empty-state icon="film-outline" title="Sin resultados" message="Prueba con otro título o con el nombre en inglés." />
+  } @else {
+    <ul class="results">
+      @for (item of results(); track item.imdbId) {
+        <li>
+          <button type="button" (click)="open(item)" [disabled]="openingId() !== null">
+            <app-poster class="thumb" [src]="item.poster" [alt]="item.title" />
+            <div class="info">
+              <h3>{{ item.title }}</h3>
+              <span class="muted">{{ typeLabel[item.mediaType] }} · {{ item.year ?? 's/f' }}</span>
+              @if (item.inDatabase) {
+                <ion-badge color="success">En tu base de datos</ion-badge>
+              }
+            </div>
+            <div class="action">
+              @if (openingId() === item.imdbId) {
+                <ion-spinner name="crescent" />
+              } @else if (item.inDatabase) {
+                <ion-icon name="checkmark-circle" class="saved" />
+              } @else {
+                <ion-icon name="cloud-download-outline" />
+              }
+            </div>
+          </button>
+        </li>
+      }
+    </ul>
+  }
+
+  <ion-infinite-scroll [disabled]="!hasMore()" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" />
+  </ion-infinite-scroll>
+</ion-content>

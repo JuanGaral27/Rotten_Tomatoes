@@ -1,0 +1,76 @@
+:host {
+  display: block;
+}
+
+ion-content {
+  --background: radial-gradient(120% 80% at 50% 0%, rgba(var(--app-orange-rgb), 0.22) 0%, var(--app-bg) 60%);
+}
+
+.wrapper {
+  min-height: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 28px;
+
+  .logo {
+    font-size: 2.1rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+
+    span {
+      color: var(--app-orange);
+    }
+  }
+
+  p {
+    margin: 10px 0 0;
+    color: var(--app-text-muted);
+  }
+}
+
+h1 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  margin: 0 0 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+ion-input {
+  --background: var(--app-surface-2);
+  --border-color: var(--app-border);
+  --highlight-color-focused: var(--app-orange);
+  --border-radius: var(--app-radius);
+}
+
+ion-button[type='submit'] {
+  margin-top: 6px;
+  --box-shadow: none;
+  height: 48px;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 22px;
+  color: var(--app-text-muted);
+
+  a {
+    color: var(--app-orange);
+    font-weight: 700;
+    text-decoration: none;
+  }
+}

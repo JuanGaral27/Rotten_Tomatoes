@@ -1,0 +1,96 @@
+/* ===== Ionic core ===== */
+@import '@ionic/angular/css/core.css';
+@import '@ionic/angular/css/normalize.css';
+@import '@ionic/angular/css/structure.css';
+@import '@ionic/angular/css/typography.css';
+@import '@ionic/angular/css/padding.css';
+@import '@ionic/angular/css/float-elements.css';
+@import '@ionic/angular/css/text-alignment.css';
+@import '@ionic/angular/css/text-transformation.css';
+@import '@ionic/angular/css/flex-utils.css';
+@import '@ionic/angular/css/display.css';
+
+/* Paleta oscura de Ionic, y luego nuestro tema encima */
+@import '@ionic/angular/css/palettes/dark.always.css';
+@import './theme/variables.css';
+
+/* ===== Estilos globales ===== */
+html,
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+ion-content {
+  --background: var(--app-bg);
+}
+
+ion-toolbar {
+  --background: var(--app-bg);
+  --border-width: 0;
+}
+
+ion-title {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+ion-tab-bar {
+  --border: 1px solid var(--app-border);
+  border-top: 1px solid var(--app-border);
+}
+
+ion-button {
+  --border-radius: var(--app-radius);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+ion-item {
+  --border-color: var(--app-border);
+}
+
+ion-searchbar {
+  --background: var(--app-surface-2);
+  --border-radius: var(--app-radius);
+  --box-shadow: none;
+}
+
+ion-chip {
+  --background: var(--app-surface-2);
+  --color: var(--app-text);
+}
+
+ion-modal {
+  --background: var(--app-surface);
+}
+
+/* Utilidades usadas por varias pantallas */
+.page-padding {
+  padding: 16px;
+}
+
+.section-title {
+  margin: 24px 0 12px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-left: 4px solid var(--app-orange);
+  padding-left: 10px;
+}
+
+.muted {
+  color: var(--app-text-muted);
+}
+
+.orange {
+  color: var(--app-orange);
+}
+
+.form-error {
+  color: var(--app-danger);
+  font-size: 0.8rem;
+  margin: 4px 0 0 4px;
+}

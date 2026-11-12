@@ -1,0 +1,240 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="top">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/catalog" text="" />
+    </ion-buttons>
+    @if (auth.isAdmin() && movie()) {
+      <ion-buttons slot="end">
+        <ion-button color="danger" (click)="deleteMovie()" aria-label="Eliminar película">
+          <ion-icon slot="icon-only" name="trash-outline" />
+        </ion-button>
+      </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (loading()) {
+    <div class="page-padding">
+      <ion-skeleton-text [animated]="true" style="height: 260px; border-radius: 12px" />
+      <ion-skeleton-text [animated]="true" style="width: 60%; height: 28px" />
+      <ion-skeleton-text [animated]="true" style="width: 90%" />
+    </div>
+  } @else if (notFound() || !movie()) {
+    <app-empty-state icon="film-outline" title="No se encontró la película" message="Puede que haya sido eliminada." />
+  } @else {
+    @let m = movie()!;
+
+    <!-- ===== Portada ===== -->
+    <section class="hero">
+      @if (m.poster) {
+        <div class="hero-bg" [style.background-image]="'url(' + m.poster + ')'"></div>
+      }
+      <div class="hero-fade"></div>
+      <div class="hero-content">
+        <app-poster class="poster" [src]="m.poster" [alt]="m.title" />
+        <div class="head">
+          <span class="type">{{ typeLabel[m.mediaType] }}</span>
+          <h1>{{ m.title }}</h1>
+          <p class="meta muted">
+            @if (m.year) { <span>{{ m.year }}</span> }
+            @if (m.rated) { <span class="rated">{{ m.rated }}</span> }
+            @if (m.runtime) { <span>{{ formatRuntime(m.runtime) }}</span> }
+          </p>
+          <div class="chips">
+            @for (genre of m.genres; track genre) {
+              <ion-chip>{{ genre }}</ion-chip>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content">
+      <!-- ===== Puntajes: usuarios vs críticos ===== -->
+      <h2 class="section-title">Puntajes</h2>
+      <div class="scores main">
+        <app-score-badge
+          label="Usuarios"
+          color="var(--app-score-user)"
+          [score]="m.ratings.user.average"
+          [caption]="m.ratings.user.count + (m.ratings.user.count === 1 ? ' reseña' : ' reseñas')"
+        />
+        <app-score-badge
+          label="Críticos"
+          color="var(--app-score-critic)"
+          [score]="m.ratings.critic.average"
+          [caption]="m.ratings.critic.count + (m.ratings.critic.count === 1 ? ' reseña' : ' reseñas')"
+        />
+      </div>
+      <div class="scores external">
+        <app-score-badge
+          label="IMDb"
+          color="#f5c518"
+          [score]="m.externalRatings.imdb.rating"
+          [caption]="formatVotes(m.externalRatings.imdb.votes)"
+        />
+        <app-score-badge
+          label="Tomatometer"
+          color="#fa320a"
+          [score]="m.externalRatings.rottenTomatoes"
+          [valueText]="m.externalRatings.rottenTomatoes === null ? null : m.externalRatings.rottenTomatoes + '%'"
+        />
+        <app-score-badge
+          label="Metascore"
+          color="#66cc33"
+          [score]="m.externalRatings.metascore"
+          [valueText]="m.externalRatings.metascore === null ? null : '' + m.externalRatings.metascore"
+        />
+      </div>
+
+      <!-- ===== Sinopsis e información ===== -->
+      @if (m.plot) {
+        <h2 class="section-title">Sinopsis</h2>
+        <p class="plot">{{ m.plot }}</p>
+      }
+
+      <h2 class="section-title">Información</h2>
+      <dl class="info">
+        <div><dt><ion-icon name="calendar-outline" /> Estreno</dt><dd>{{ formatDate(m.released) }}</dd></div>
+        @if (m.directors.length) {
+          <div><dt>Dirección</dt><dd>{{ m.directors.join(', ') }}</dd></div>
+        }
+        @if (m.writers.length) {
+          <div><dt>Guion</dt><dd>{{ m.writers.join(', ') }}</dd></div>
+        }
+        @if (m.languages.length) {
+          <div><dt><ion-icon name="language-outline" /> Idiomas</dt><dd>{{ m.languages.join(', ') }}</dd></div>
+        }
+        @if (m.countries.length) {
+          <div><dt>País</dt><dd>{{ m.countries.join(', ') }}</dd></div>
+        }
+        @if (m.awards) {
+          <div><dt><ion-icon name="trophy-outline" /> Premios</dt><dd>{{ m.awards }}</dd></div>
+        }
+      </dl>
+
+      @if (m.actors.length) {
+        <h2 class="section-title">Reparto</h2>
+        <div class="chips">
+          @for (actor of m.actors; track actor) {
+            <ion-chip>{{ actor }}</ion-chip>
+          }
+        </div>
+      }
+
+      <!-- ===== Tu reseña ===== -->
+      <h2 class="section-title">{{ myReview() ? 'Tu reseña' : 'Escribe tu reseña' }}</h2>
+
+      @if (!showForm()) {
+        @let mine = myReview()!;
+        <article class="review mine">
+          <div class="review-head">
+            <span class="score-pill">{{ formatScore(mine.rating) }}<small>/10</small></span>
+            <span class="muted">{{ formatDateTime(mine.createdAt) }}</span>
+          </div>
+          <p class="comment">{{ mine.comment }}</p>
+          <div class="actions">
+            <ion-button size="small" fill="outline" (click)="startEdit()">
+              <ion-icon slot="start" name="create-outline" /> Editar
+            </ion-button>
+            <ion-button size="small" fill="outline" color="danger" (click)="deleteReview(mine)">
+              <ion-icon slot="start" name="trash-outline" /> Eliminar
+            </ion-button>
+          </div>
+        </article>
+      } @else {
+        <div class="review-form">
+          <p class="muted hint">
+            Tu puntaje cuenta como <strong [class.critic]="auth.isCritic()">{{ myReviewerLabel() }}</strong>.
+          </p>
+          <app-score-input [(value)]="draftRating" />
+          <ion-textarea
+            [formControl]="commentControl"
+            label="Tu opinión"
+            labelPlacement="floating"
+            fill="outline"
+            [autoGrow]="true"
+            [counter]="true"
+            [maxlength]="commentRules.MAX_LENGTH"
+            rows="3"
+          />
+          @if (commentControl.touched && commentControl.invalid) {
+            <p class="form-error">Escribe al menos {{ commentRules.MIN_LENGTH }} caracteres</p>
+          }
+          <div class="actions">
+            @if (editing()) {
+              <ion-button fill="outline" color="medium" (click)="cancelEdit()">Cancelar</ion-button>
+            }
+            <ion-button (click)="submitReview()" [disabled]="saving()">
+              @if (saving()) {
+                <ion-spinner name="crescent" />
+              } @else {
+                {{ editing() ? 'Guardar cambios' : 'Publicar' }}
+              }
+            </ion-button>
+          </div>
+        </div>
+      }
+
+      <!-- ===== Reseñas de todos ===== -->
+      <h2 class="section-title">Reseñas ({{ reviewsTotal() }})</h2>
+
+      <ion-segment [value]="reviewFilter()" (ionChange)="onFilter($event)">
+        <ion-segment-button value="all"><ion-label>Todas</ion-label></ion-segment-button>
+        <ion-segment-button value="user"><ion-label>Usuarios</ion-label></ion-segment-button>
+        <ion-segment-button value="critic"><ion-label>Críticos</ion-label></ion-segment-button>
+      </ion-segment>
+
+      <ion-select
+        class="order"
+        interface="popover"
+        label="Ordenar por"
+        [value]="reviewOrder()"
+        (ionChange)="onOrder($event)"
+      >
+        <ion-select-option value="recent">Más recientes</ion-select-option>
+        <ion-select-option value="oldest">Más antiguas</ion-select-option>
+        <ion-select-option value="high">Mayor puntaje</ion-select-option>
+        <ion-select-option value="low">Menor puntaje</ion-select-option>
+      </ion-select>
+
+      @if (reviews().length === 0 && !reviewsLoading()) {
+        <app-empty-state icon="chatbubble-ellipses-outline" title="Aún no hay reseñas" message="¡Sé el primero en opinar!" />
+      } @else {
+        <div class="review-list">
+          @for (review of reviews(); track review.id) {
+            <article class="review">
+              <div class="review-head">
+                <span class="avatar">{{ authorName(review).charAt(0).toUpperCase() }}</span>
+                <div class="who">
+                  <strong>{{ authorName(review) }}</strong>
+                  <span class="tag" [class.critic]="review.reviewerType === 'critic'">
+                    {{ review.reviewerType === 'critic' ? 'Crítico' : 'Usuario' }}
+                  </span>
+                </div>
+                <span class="score-pill" [class.critic]="review.reviewerType === 'critic'">
+                  {{ formatScore(review.rating) }}<small>/10</small>
+                </span>
+              </div>
+              <p class="comment">{{ review.comment }}</p>
+              <div class="review-foot">
+                <span class="muted">{{ formatDateTime(review.createdAt) }}</span>
+                @if (canDelete(review)) {
+                  <ion-button size="small" fill="clear" color="danger" (click)="deleteReview(review)">
+                    <ion-icon slot="icon-only" name="trash-outline" />
+                  </ion-button>
+                }
+              </div>
+            </article>
+          }
+        </div>
+        @if (reviewsHasMore()) {
+          <ion-button expand="block" fill="outline" (click)="loadMoreReviews()" [disabled]="reviewsLoading()">
+            Cargar más reseñas
+          </ion-button>
+        }
+      }
+    </div>
+  }
+</ion-content>

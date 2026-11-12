@@ -1,0 +1,82 @@
+<ion-content [fullscreen]="true">
+  <div class="wrapper">
+    <div class="brand">
+      <div class="logo">{{ appName }}</div>
+      <p>Crea tu cuenta para opinar y puntuar</p>
+    </div>
+
+    <h1>Crear cuenta</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div>
+        <ion-input
+          formControlName="username"
+          label="Nombre de usuario"
+          labelPlacement="floating"
+          fill="outline"
+          autocomplete="username"
+        />
+        @if (form.controls.username.touched && form.controls.username.invalid) {
+          <p class="form-error">
+            {{ usernameRules.MIN_LENGTH }}-{{ usernameRules.MAX_LENGTH }} caracteres: letras, números, punto, guion o guion bajo
+          </p>
+        }
+      </div>
+
+      <div>
+        <ion-input
+          type="email"
+          formControlName="email"
+          label="Correo electrónico"
+          labelPlacement="floating"
+          fill="outline"
+          autocomplete="email"
+          inputmode="email"
+        />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <p class="form-error">Ingresa un correo válido</p>
+        }
+      </div>
+
+      <div>
+        <ion-input
+          type="password"
+          formControlName="password"
+          label="Contraseña"
+          labelPlacement="floating"
+          fill="outline"
+          autocomplete="new-password"
+        >
+          <ion-input-password-toggle slot="end" />
+        </ion-input>
+        @if (form.controls.password.touched && form.controls.password.invalid) {
+          <p class="form-error">Mínimo {{ passwordRules.MIN_LENGTH }} caracteres</p>
+        }
+      </div>
+
+      <div>
+        <ion-input
+          type="password"
+          formControlName="confirmPassword"
+          label="Repetir contraseña"
+          labelPlacement="floating"
+          fill="outline"
+          autocomplete="new-password"
+        />
+        @if (form.controls.confirmPassword.touched && form.hasError('mismatch')) {
+          <p class="form-error">Las contraseñas no coinciden</p>
+        }
+      </div>
+
+      <ion-button type="submit" expand="block" [disabled]="loading()">
+        @if (loading()) {
+          <ion-spinner name="crescent" />
+        } @else {
+          Registrarme
+        }
+      </ion-button>
+    </form>
+
+    <p class="switch">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+  </div>
+</ion-content>

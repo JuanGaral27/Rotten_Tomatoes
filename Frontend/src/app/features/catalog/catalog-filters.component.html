@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filtros</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss.emit()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h4>Tipo</h4>
+  <ion-segment [value]="type()" (ionChange)="onTypeChange($event)">
+    <ion-segment-button value="all"><ion-label>Todos</ion-label></ion-segment-button>
+    @for (option of typeOptions; track option.value) {
+      <ion-segment-button [value]="option.value"><ion-label>{{ option.label }}</ion-label></ion-segment-button>
+    }
+  </ion-segment>
+
+  <h4>Categorías</h4>
+  @if (genres().length === 0) {
+    <p class="muted">Aún no hay categorías: importa películas desde "Explorar".</p>
+  } @else {
+    <div class="chips">
+      @for (genre of genres(); track genre) {
+        <ion-chip [class.selected]="selectedGenres().includes(genre)" (click)="toggleGenre(genre)">
+          {{ genre }}
+        </ion-chip>
+      }
+    </div>
+  }
+
+  <h4>Puntaje <span class="range">{{ ratingLabel() }}</span></h4>
+  <ion-segment [value]="ratingSource()" (ionChange)="onSourceChange($event)">
+    @for (option of sourceOptions; track option.value) {
+      <ion-segment-button [value]="option.value"><ion-label>{{ option.label }}</ion-label></ion-segment-button>
+    }
+  </ion-segment>
+  <ion-range
+    [dualKnobs]="true"
+    [min]="score.MIN"
+    [max]="score.MAX"
+    [step]="score.STEP"
+    [pin]="true"
+    [value]="ratingRange()"
+    (ionInput)="onRangeChange($event)"
+    aria-label="Rango de puntaje"
+  />
+
+  <h4>Fecha de estreno</h4>
+  <div class="row">
+    <ion-input type="date" [(ngModel)]="releasedFrom" label="Desde" labelPlacement="stacked" fill="outline" />
+    <ion-input type="date" [(ngModel)]="releasedTo" label="Hasta" labelPlacement="stacked" fill="outline" />
+  </div>
+
+  <h4>Más</h4>
+  <div class="row">
+    <ion-input
+      type="number"
+      inputmode="numeric"
+      [(ngModel)]="year"
+      label="Año"
+      labelPlacement="stacked"
+      fill="outline"
+      placeholder="2010"
+    />
+    <ion-input [(ngModel)]="actor" label="Actor" labelPlacement="stacked" fill="outline" placeholder="Nombre" />
+  </div>
+</ion-content>
+
+<div class="footer">
+  <ion-button fill="outline" color="medium" (click)="reset()">Limpiar</ion-button>
+  <ion-button (click)="submit()">Aplicar filtros</ion-button>
+</div>

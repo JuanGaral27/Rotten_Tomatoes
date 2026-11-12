@@ -1,0 +1,78 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+ion-content {
+  flex: 1;
+}
+
+h4 {
+  margin: 20px 0 8px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:first-child {
+    margin-top: 4px;
+  }
+}
+
+.range {
+  float: right;
+  color: var(--app-orange);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -4px;
+}
+
+ion-chip {
+  --background: var(--app-surface-2);
+  border: 1px solid var(--app-border);
+  cursor: pointer;
+
+  &.selected {
+    --background: var(--app-orange);
+    --color: #000;
+    border-color: var(--app-orange);
+    font-weight: 700;
+  }
+}
+
+ion-segment {
+  --background: var(--app-surface-2);
+}
+
+ion-range {
+  --bar-background-active: var(--app-orange);
+  --knob-background: var(--app-orange);
+  --pin-background: var(--app-orange);
+  --pin-color: #000;
+  padding-inline: 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+ion-input {
+  --background: var(--app-surface-2);
+  --border-color: var(--app-border);
+  --border-radius: var(--app-radius);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--app-border);
+  background: var(--app-surface);
+}

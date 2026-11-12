@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Usuarios</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar por nombre o correo" [debounce]="400" (ionInput)="onSearch($event)" />
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [value]="role()" (ionChange)="onRole($event)">
+      <ion-segment-button value="all"><ion-label>Todos</ion-label></ion-segment-button>
+      <ion-segment-button value="user"><ion-label>Usuarios</ion-label></ion-segment-button>
+      <ion-segment-button value="critic"><ion-label>Críticos</ion-label></ion-segment-button>
+      <ion-segment-button value="admin"><ion-label>Admins</ion-label></ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content />
+  </ion-refresher>
+
+  @if (loading() && users().length === 0) {
+    <div class="center"><ion-spinner name="crescent" /></div>
+  } @else if (users().length === 0) {
+    <app-empty-state icon="people-outline" title="Sin usuarios" message="No hay usuarios con ese filtro." />
+  } @else {
+    <p class="muted count">{{ total() }} {{ total() === 1 ? 'usuario' : 'usuarios' }}</p>
+    <ul class="list">
+      @for (user of users(); track user.id) {
+        <li>
+          <span class="avatar">{{ user.username.charAt(0).toUpperCase() }}</span>
+          <div class="info">
+            <strong>{{ user.username }}</strong>
+            <span class="muted">{{ user.email }}</span>
+            <span class="role" [class.critic]="user.role === 'critic'" [class.admin]="user.role === 'admin'">
+              {{ roleLabel[user.role] }}
+            </span>
+          </div>
+          <ion-button fill="clear" (click)="openForm(user)" aria-label="Editar">
+            <ion-icon slot="icon-only" name="create-outline" />
+          </ion-button>
+          @if (user.id !== auth.user()?.id) {
+            <ion-button fill="clear" color="danger" (click)="remove(user)" aria-label="Eliminar">
+              <ion-icon slot="icon-only" name="trash-outline" />
+            </ion-button>
+          }
+        </li>
+      }
+    </ul>
+  }
+
+  <ion-infinite-scroll [disabled]="!hasMore()" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" />
+  </ion-infinite-scroll>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openForm()" aria-label="Nuevo usuario">
+      <ion-icon name="add" />
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

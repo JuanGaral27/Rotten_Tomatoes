@@ -1,0 +1,74 @@
+ion-segment {
+  --background: var(--app-surface-2);
+  margin: 0 12px 8px;
+  width: auto;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+  padding: 64px 0;
+}
+
+.results {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  cursor: pointer;
+
+  &:active:not(:disabled) {
+    border-color: var(--app-orange);
+  }
+}
+
+.thumb {
+  width: 56px;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .muted {
+    font-size: 0.82rem;
+  }
+}
+
+.action {
+  font-size: 1.6rem;
+  color: var(--app-orange);
+  display: grid;
+  place-items: center;
+
+  .saved {
+    color: var(--app-success);
+  }
+}
