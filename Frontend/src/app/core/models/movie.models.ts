@@ -1,6 +1,6 @@
 export type MediaType = 'movie' | 'series' | 'episode';
 export type RatingSource = 'user' | 'critic' | 'imdb';
-export type MovieSortBy = 'date' | 'rating' | 'title';
+export type MovieSortBy = 'date' | 'rating' | 'title' | 'popularity';
 export type SortOrder = 'asc' | 'desc';
 
 export interface RatingStat {

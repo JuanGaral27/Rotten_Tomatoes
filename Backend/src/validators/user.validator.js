@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { PASSWORD, ROLES, ROLE_VALUES, USERNAME } from '../config/constants.js';
+import { EMAIL, PASSWORD, ROLES, ROLE_VALUES, SEARCH_TEXT, USERNAME } from '../config/constants.js';
 import { paginationQuery } from './common.validator.js';
 
 export const usernameSchema = z
@@ -9,10 +9,18 @@ export const usernameSchema = z
   .max(USERNAME.MAX_LENGTH)
   .regex(USERNAME.PATTERN, 'Solo se permiten letras, números, punto, guion y guion bajo');
 
-// Normaliza (trim + minúsculas) y luego valida el formato.
-export const emailSchema = z.string().trim().toLowerCase().pipe(z.email('Email inválido'));
+// Normaliza (trim + minúsculas), limita el largo y exige el formato algo@dominio.ext
+export const emailSchema = z
+  .string()
+  .trim()
+  .toLowerCase()
+  .max(EMAIL.MAX_LENGTH, `El correo no puede superar ${EMAIL.MAX_LENGTH} caracteres`)
+  .regex(EMAIL.PATTERN, 'Correo inválido (ejemplo: nombre@dominio.com)');
 
-export const passwordSchema = z.string().min(PASSWORD.MIN_LENGTH).max(PASSWORD.MAX_LENGTH);
+export const passwordSchema = z
+  .string()
+  .min(PASSWORD.MIN_LENGTH, `La clave debe tener al menos ${PASSWORD.MIN_LENGTH} caracteres`)
+  .max(PASSWORD.MAX_LENGTH, `La clave no puede superar ${PASSWORD.MAX_LENGTH} caracteres`);
 
 // Crear usuario como administrador (puede asignar rol).
 export const createUserBody = z.object({
@@ -33,5 +41,5 @@ export const updateUserBody = z
 
 export const listUsersQuery = paginationQuery.extend({
   role: z.enum(ROLE_VALUES).optional(),
-  q: z.string().trim().min(1).optional(),
+  q: z.string().trim().min(1).max(SEARCH_TEXT.MAX_LENGTH).optional(),
 });

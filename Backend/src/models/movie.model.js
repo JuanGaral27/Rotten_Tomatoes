@@ -61,6 +61,7 @@ movieSchema.index({ genres: 1 });
 movieSchema.index({ 'ratings.user.average': -1 });
 movieSchema.index({ 'ratings.critic.average': -1 });
 movieSchema.index({ 'externalRatings.imdb.rating': -1 });
+movieSchema.index({ 'externalRatings.imdb.votes': -1 });
 
 movieSchema.plugin(normalizeJson);
 

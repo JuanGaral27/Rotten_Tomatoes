@@ -61,7 +61,7 @@
     } @else {
       <form [formGroup]="form" (ngSubmit)="save()" novalidate>
         <div>
-          <ion-input formControlName="username" label="Nombre de usuario" labelPlacement="floating" fill="outline" />
+          <ion-input formControlName="username" [maxlength]="usernameRules.MAX_LENGTH" label="Nombre de usuario" labelPlacement="floating" fill="outline" />
           @if (form.controls.username.touched && form.controls.username.invalid) {
             <p class="form-error">
               {{ usernameRules.MIN_LENGTH }}-{{ usernameRules.MAX_LENGTH }} caracteres: letras, números, punto, guion o guion bajo
@@ -69,7 +69,7 @@
           }
         </div>
         <div>
-          <ion-input type="email" formControlName="email" label="Correo electrónico" labelPlacement="floating" fill="outline" />
+          <ion-input type="email" formControlName="email" [maxlength]="emailRules.MAX_LENGTH" label="Correo electrónico" labelPlacement="floating" fill="outline" />
           @if (form.controls.email.touched && form.controls.email.invalid) {
             <p class="form-error">Ingresa un correo válido</p>
           }
@@ -82,11 +82,12 @@
             labelPlacement="floating"
             fill="outline"
             autocomplete="new-password"
+            [maxlength]="passwordRules.MAX_LENGTH"
           >
             <ion-input-password-toggle slot="end" />
           </ion-input>
           @if (form.controls.password.touched && form.controls.password.invalid) {
-            <p class="form-error">Mínimo {{ passwordRules.MIN_LENGTH }} caracteres</p>
+            <p class="form-error">Entre {{ passwordRules.MIN_LENGTH }} y {{ passwordRules.MAX_LENGTH }} caracteres</p>
           }
         </div>
 

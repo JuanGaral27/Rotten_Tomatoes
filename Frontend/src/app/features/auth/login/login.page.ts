@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EMAIL, PASSWORD } from '../../../core/constants/app.constants';
 import { Router, RouterLink } from '@angular/router';
 import {
   IonButton,
@@ -20,6 +21,8 @@ import { getErrorMessage } from '../../../core/utils/error-message';
   styleUrl: '../auth.page.scss',
 })
 export class LoginPage {
+  protected readonly emailRules = EMAIL;
+  protected readonly passwordRules = PASSWORD;
   private readonly fb = inject(FormBuilder).nonNullable;
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
@@ -29,11 +32,14 @@ export class LoginPage {
   protected readonly loading = signal(false);
 
   protected readonly form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.maxLength(EMAIL.MAX_LENGTH), Validators.pattern(EMAIL.PATTERN)]],
+    password: ['', [Validators.required, Validators.maxLength(PASSWORD.MAX_LENGTH)]],
   });
 
   protected submit(): void {
+    // Evita el doble envío (doble toque, o Enter del teclado + botón).
+    if (this.loading()) return;
+
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;

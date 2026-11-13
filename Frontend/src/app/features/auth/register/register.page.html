@@ -15,6 +15,7 @@
           labelPlacement="floating"
           fill="outline"
           autocomplete="username"
+          [maxlength]="usernameRules.MAX_LENGTH"
         />
         @if (form.controls.username.touched && form.controls.username.invalid) {
           <p class="form-error">
@@ -32,9 +33,10 @@
           fill="outline"
           autocomplete="email"
           inputmode="email"
+          [maxlength]="emailRules.MAX_LENGTH"
         />
         @if (form.controls.email.touched && form.controls.email.invalid) {
-          <p class="form-error">Ingresa un correo válido</p>
+          <p class="form-error">Correo inválido. Ejemplo: nombre@dominio.com</p>
         }
       </div>
 
@@ -46,11 +48,12 @@
           labelPlacement="floating"
           fill="outline"
           autocomplete="new-password"
+          [maxlength]="passwordRules.MAX_LENGTH"
         >
           <ion-input-password-toggle slot="end" />
         </ion-input>
         @if (form.controls.password.touched && form.controls.password.invalid) {
-          <p class="form-error">Mínimo {{ passwordRules.MIN_LENGTH }} caracteres</p>
+          <p class="form-error">Entre {{ passwordRules.MIN_LENGTH }} y {{ passwordRules.MAX_LENGTH }} caracteres</p>
         }
       </div>
 
@@ -62,6 +65,7 @@
           labelPlacement="floating"
           fill="outline"
           autocomplete="new-password"
+          [maxlength]="passwordRules.MAX_LENGTH"
         />
         @if (form.controls.confirmPassword.touched && form.hasError('mismatch')) {
           <p class="form-error">Las contraseñas no coinciden</p>

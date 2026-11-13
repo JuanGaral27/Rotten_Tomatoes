@@ -15,7 +15,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular';
-import { PASSWORD, ROLE_LABEL, USERNAME } from '../../core/constants/app.constants';
+import { EMAIL, PASSWORD, ROLE_LABEL, USERNAME } from '../../core/constants/app.constants';
 import { Review } from '../../core/models/review.models';
 import { UpdateUserPayload } from '../../core/models/user.models';
 import { AuthService } from '../../core/services/auth.service';
@@ -65,6 +65,7 @@ export class ProfilePage {
   protected readonly initial = computed(() => (this.user()?.username ?? '?').charAt(0).toUpperCase());
   protected readonly usernameRules = USERNAME;
   protected readonly passwordRules = PASSWORD;
+  protected readonly emailRules = EMAIL;
   protected readonly formatScore = formatScore;
   protected readonly formatDateTime = formatDateTime;
 
@@ -82,7 +83,7 @@ export class ProfilePage {
       '',
       [Validators.required, Validators.minLength(USERNAME.MIN_LENGTH), Validators.maxLength(USERNAME.MAX_LENGTH), Validators.pattern(USERNAME.PATTERN)],
     ],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.maxLength(EMAIL.MAX_LENGTH), Validators.pattern(EMAIL.PATTERN)]],
     // Opcional: solo se valida/envía si el usuario escribe una nueva.
     password: ['', [Validators.minLength(PASSWORD.MIN_LENGTH), Validators.maxLength(PASSWORD.MAX_LENGTH)]],
   });
@@ -111,6 +112,9 @@ export class ProfilePage {
   }
 
   protected save(): void {
+    // Evita el doble envío (doble toque, o Enter del teclado + botón).
+    if (this.saving()) return;
+
     const user = this.user();
     if (!user) return;
     if (this.form.invalid) {

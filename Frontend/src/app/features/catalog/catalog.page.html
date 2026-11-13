@@ -6,6 +6,7 @@
     <div class="search-row">
       <ion-searchbar
         placeholder="Buscar películas o series"
+        [appMaxLength]="searchRules.MAX_LENGTH"
         [debounce]="400"
         (ionInput)="onSearch($event)"
         [value]="filters().q ?? ''"
@@ -93,3 +94,4 @@
     />
   </ng-template>
 </ion-modal>
+

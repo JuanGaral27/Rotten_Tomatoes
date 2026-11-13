@@ -20,7 +20,7 @@ import {
 } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { DEFAULT_SORT, PAGE_SIZE, RATING_SOURCE_OPTIONS, SORT_OPTIONS } from '../../core/constants/app.constants';
+import { DEFAULT_SORT, PAGE_SIZE, SEARCH_TEXT, RATING_SOURCE_OPTIONS, SORT_OPTIONS } from '../../core/constants/app.constants';
 import { Movie, MovieFilters, MovieSortBy, RatingSource } from '../../core/models/movie.models';
 import { MovieService } from '../../core/services/movie.service';
 import { UiService } from '../../core/services/ui.service';
@@ -40,9 +40,11 @@ const FILTER_KEYS: (keyof MovieFilters)[] = [
   'maxRating',
 ];
 
+import { SearchbarMaxLengthDirective } from '../../shared/directives/shared/directives/searchbar-max-length.directive';
 @Component({
   selector: 'app-catalog',
   imports: [
+    SearchbarMaxLengthDirective,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -67,6 +69,7 @@ const FILTER_KEYS: (keyof MovieFilters)[] = [
   styleUrl: './catalog.page.scss',
 })
 export class CatalogPage implements OnDestroy {
+  protected readonly searchRules = SEARCH_TEXT;
   private readonly movieService = inject(MovieService);
   private readonly ui = inject(UiService);
 
@@ -106,7 +109,7 @@ export class CatalogPage implements OnDestroy {
 
   // ---- Acciones de la pantalla ----
   protected onSearch(event: SearchbarCustomEvent): void {
-    const q = (event.detail.value ?? '').trim();
+    const q = (event.detail.value ?? '').slice(0, SEARCH_TEXT.MAX_LENGTH).trim();
     this.filters.update((current) => ({ ...current, q: q || undefined }));
     this.reload();
   }

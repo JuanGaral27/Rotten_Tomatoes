@@ -1,4 +1,4 @@
-import { DEFAULT_RATING_SOURCE, DEFAULT_SORT_ORDER, RATING_SOURCES } from '../config/constants.js';
+import { DEFAULT_RATING_SOURCE, DEFAULT_SORT_ORDER, POPULARITY_FIELD, RATING_SOURCES } from '../config/constants.js';
 import { escapeRegex } from '../utils/escapeRegex.js';
 
 /**
@@ -40,6 +40,7 @@ export const buildMovieFilter = (filters) => {
 const SORT_FIELD_RESOLVERS = {
   date: () => 'released',
   title: () => 'title',
+  popularity: () => POPULARITY_FIELD,
   rating: ({ ratingSource }) => ratingField(ratingSource),
 };
 

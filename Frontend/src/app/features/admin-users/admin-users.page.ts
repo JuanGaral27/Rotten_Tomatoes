@@ -21,7 +21,7 @@ import {
   ModalController,
 } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import { ROLE_LABEL } from '../../core/constants/app.constants';
+import { ROLE_LABEL, SEARCH_TEXT } from '../../core/constants/app.constants';
 import { Role, User } from '../../core/models/user.models';
 import { AuthService } from '../../core/services/auth.service';
 import { UiService } from '../../core/services/ui.service';
@@ -34,9 +34,11 @@ type RoleFilter = Role | 'all';
 const PAGE_SIZE = 15;
 
 /** CRUD de usuarios (solo administradores). */
+import { SearchbarMaxLengthDirective } from '../../shared/directives/shared/directives/searchbar-max-length.directive';
 @Component({
   selector: 'app-admin-users',
   imports: [
+    SearchbarMaxLengthDirective,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -60,6 +62,7 @@ const PAGE_SIZE = 15;
   styleUrl: './admin-users.page.scss',
 })
 export class AdminUsersPage implements OnDestroy {
+  protected readonly searchRules = SEARCH_TEXT;
   private readonly userService = inject(UserService);
   private readonly modalController = inject(ModalController);
   private readonly ui = inject(UiService);
@@ -85,7 +88,7 @@ export class AdminUsersPage implements OnDestroy {
   }
 
   protected onSearch(event: SearchbarCustomEvent): void {
-    this.query.set((event.detail.value ?? '').trim());
+    this.query.set((event.detail.value ?? '').slice(0, SEARCH_TEXT.MAX_LENGTH).trim());
     this.reload();
   }
 

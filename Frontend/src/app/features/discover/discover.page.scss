@@ -19,7 +19,7 @@ ion-segment {
   gap: 10px;
 }
 
-button {
+.results button {
   width: 100%;
   display: flex;
   align-items: center;
@@ -71,4 +71,59 @@ button {
   .saved {
     color: var(--app-success);
   }
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.chip {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ion-text-color, #fff);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 999px;
+  cursor: pointer;
+
+  &.active {
+    color: #000;
+    background: var(--app-orange);
+    border-color: var(--app-orange);
+  }
+}
+
+.section-heading {
+  margin: 12px 16px 4px;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px 12px;
+  padding: 8px 16px 16px;
+}
+
+.retry {
+  margin-top: 12px;
+  padding: 8px 18px;
+  font: inherit;
+  font-weight: 700;
+  color: #000;
+  background: var(--app-orange);
+  border: 0;
+  border-radius: 999px;
 }

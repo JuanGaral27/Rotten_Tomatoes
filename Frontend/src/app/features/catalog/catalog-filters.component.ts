@@ -14,7 +14,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular';
-import { MEDIA_TYPE_OPTIONS, RATING_SOURCE_OPTIONS, SCORE } from '../../core/constants/app.constants';
+import { MEDIA_TYPE_OPTIONS, RATING_SOURCE_OPTIONS, SCORE, SEARCH_TEXT } from '../../core/constants/app.constants';
 import { MediaType, MovieFilters, RatingSource } from '../../core/models/movie.models';
 
 type TypeChoice = MediaType | 'all';
@@ -41,6 +41,7 @@ type TypeChoice = MediaType | 'all';
   styleUrl: './catalog-filters.component.scss',
 })
 export class CatalogFiltersComponent {
+  protected readonly searchRules = SEARCH_TEXT;
   /** Filtros actuales (solo se leen al abrir el panel). */
   readonly filters = input.required<MovieFilters>();
   readonly genres = input<string[]>([]);

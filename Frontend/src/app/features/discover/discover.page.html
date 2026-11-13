@@ -3,7 +3,10 @@
     <ion-title>Explorar</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar placeholder="Busca cualquier película o serie" [debounce]="500" (ionInput)="onSearch($event)" />
+    <ion-searchbar
+      placeholder="Busca cualquier película o serie"
+      [appMaxLength]="searchRules.MAX_LENGTH"
+      [debounce]="500" (ionInput)="onSearch($event)" />
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment [value]="type()" (ionChange)="onTypeChange($event)">
@@ -16,7 +19,36 @@
 </ion-header>
 
 <ion-content>
-  @if (searching() && results().length === 0) {
+  @if (!isSearching()) {
+    <div class="chips" role="tablist" aria-label="Categorías">
+      <button type="button" class="chip" [class.active]="genre() === null" (click)="selectGenre(null)">Todas</button>
+      @for (name of genres(); track name) {
+        <button type="button" class="chip" [class.active]="genre() === name" (click)="selectGenre(name)">{{ name }}</button>
+      }
+    </div>
+
+    <h2 class="section-heading">{{ genre() ?? 'Más populares' }}</h2>
+
+    @if (popularLoading() && popular().length === 0) {
+      <div class="center"><ion-spinner name="crescent" /></div>
+    } @else if (popularError() && popular().length === 0) {
+      <app-empty-state icon="cloud-offline-outline" title="No se pudo cargar" message="Revisa tu conexión con el servidor.">
+        <button type="button" class="retry" (click)="retryPopular()">Reintentar</button>
+      </app-empty-state>
+    } @else if (popular().length === 0) {
+      <app-empty-state
+        icon="film-outline"
+        title="Aún no hay películas aquí"
+        message="Busca un título arriba para traerlo de OMDb, o ejecuta npm run seed:movies en el backend."
+      />
+    } @else {
+      <div class="grid">
+        @for (movie of popular(); track movie.id) {
+          <app-movie-card [movie]="movie" />
+        }
+      </div>
+    }
+  } @else if (searching() && results().length === 0) {
     <div class="center"><ion-spinner name="crescent" /></div>
   } @else if (!searched()) {
     <app-empty-state
@@ -54,7 +86,7 @@
     </ul>
   }
 
-  <ion-infinite-scroll [disabled]="!hasMore()" (ionInfinite)="loadMore($event)">
+  <ion-infinite-scroll [disabled]="isSearching() ? !hasMore() : !popularHasMore()" (ionInfinite)="loadMore($event)">
     <ion-infinite-scroll-content loadingSpinner="crescent" />
   </ion-infinite-scroll>
 </ion-content>

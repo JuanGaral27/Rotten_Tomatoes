@@ -9,7 +9,7 @@ import {
   IonSpinner,
 } from '@ionic/angular';
 import { environment } from '../../../../environments/environment';
-import { PASSWORD, USERNAME } from '../../../core/constants/app.constants';
+import { EMAIL, PASSWORD, USERNAME } from '../../../core/constants/app.constants';
 import { AuthService } from '../../../core/services/auth.service';
 import { UiService } from '../../../core/services/ui.service';
 import { getErrorMessage } from '../../../core/utils/error-message';
@@ -32,6 +32,7 @@ export class RegisterPage {
   protected readonly appName = environment.appName;
   protected readonly usernameRules = USERNAME;
   protected readonly passwordRules = PASSWORD;
+  protected readonly emailRules = EMAIL;
   protected readonly loading = signal(false);
 
   protected readonly form = this.fb.group(
@@ -45,7 +46,7 @@ export class RegisterPage {
           Validators.pattern(USERNAME.PATTERN),
         ],
       ],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.maxLength(EMAIL.MAX_LENGTH), Validators.pattern(EMAIL.PATTERN)]],
       password: ['', [Validators.required, Validators.minLength(PASSWORD.MIN_LENGTH), Validators.maxLength(PASSWORD.MAX_LENGTH)]],
       confirmPassword: ['', [Validators.required]],
     },
@@ -53,6 +54,9 @@ export class RegisterPage {
   );
 
   protected submit(): void {
+    // Evita el doble envío (doble toque, o Enter del teclado + botón).
+    if (this.loading()) return;
+
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;

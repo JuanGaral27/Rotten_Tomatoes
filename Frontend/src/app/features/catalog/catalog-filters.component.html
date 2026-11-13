@@ -58,12 +58,14 @@
       type="number"
       inputmode="numeric"
       [(ngModel)]="year"
+      max="2100"
+      min="1800"
       label="Año"
       labelPlacement="stacked"
       fill="outline"
       placeholder="2010"
     />
-    <ion-input [(ngModel)]="actor" label="Actor" labelPlacement="stacked" fill="outline" placeholder="Nombre" />
+    <ion-input [(ngModel)]="actor" [maxlength]="searchRules.MAX_LENGTH" label="Actor" labelPlacement="stacked" fill="outline" placeholder="Nombre" />
   </div>
 </ion-content>
 
