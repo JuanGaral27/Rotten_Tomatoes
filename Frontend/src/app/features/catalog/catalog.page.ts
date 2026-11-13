@@ -40,7 +40,7 @@ const FILTER_KEYS: (keyof MovieFilters)[] = [
   'maxRating',
 ];
 
-import { SearchbarMaxLengthDirective } from '../../shared/directives/shared/directives/searchbar-max-length.directive';
+import { SearchbarMaxLengthDirective } from '../../shared/directives/searchbar-max-length.directive';
 @Component({
   selector: 'app-catalog',
   imports: [

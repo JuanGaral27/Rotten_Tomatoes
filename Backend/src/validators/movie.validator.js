@@ -3,22 +3,29 @@ import {
   DEFAULT_RATING_SOURCE,
   MEDIA_TYPE_VALUES,
   MOVIE_SORT_KEYS,
+  GENRE_FILTER,
   RATING_SOURCE_KEYS,
   SCORE,
+  SEARCH_TEXT,
+  TITLE_TEXT,
 } from '../config/constants.js';
 import { csvListSchema, imdbIdSchema, paginationQuery, sortOrderSchema } from './common.validator.js';
 
 const yearSchema = z.coerce.number().int().min(1800).max(2100);
 const mediaTypeSchema = z.enum(MEDIA_TYPE_VALUES);
 const scoreFilterSchema = z.coerce.number().min(SCORE.MIN).max(SCORE.MAX);
+const searchTextSchema = z.string().trim().min(1).max(SEARCH_TEXT.MAX_LENGTH);
+const genreListSchema = csvListSchema.pipe(
+  z.array(z.string().max(GENRE_FILTER.ITEM_MAX_LENGTH)).max(GENRE_FILTER.MAX_ITEMS),
+);
 
 // GET /movies  (filtros + ordenamiento sobre NUESTRA base de datos)
 export const listMoviesQuery = paginationQuery
   .extend({
-    q: z.string().trim().min(1).optional(), // nombre (búsqueda parcial)
+    q: searchTextSchema.optional(), // nombre (búsqueda parcial)
     type: mediaTypeSchema.optional(),
-    genre: csvListSchema.optional(), // categorías: Action,Drama
-    actor: z.string().trim().min(1).optional(),
+    genre: genreListSchema.optional(), // categorías: Action,Drama
+    actor: searchTextSchema.optional(),
     year: yearSchema.optional(),
     releasedFrom: z.coerce.date().optional(), // fecha de estreno desde (YYYY-MM-DD)
     releasedTo: z.coerce.date().optional(), // fecha de estreno hasta
@@ -39,7 +46,7 @@ export const listMoviesQuery = paginationQuery
 
 // GET /movies/external/search  (busca en OMDb, no guarda nada)
 export const externalSearchQuery = z.object({
-  q: z.string().trim().min(1, 'q es obligatorio'),
+  q: z.string().trim().min(1, 'q es obligatorio').max(SEARCH_TEXT.MAX_LENGTH),
   type: mediaTypeSchema.optional(),
   year: yearSchema.optional(),
   page: z.coerce.number().int().min(1).max(100).default(1),
@@ -49,7 +56,7 @@ export const externalSearchQuery = z.object({
 export const importMovieBody = z
   .object({
     imdbId: imdbIdSchema.optional(),
-    title: z.string().trim().min(1).optional(),
+    title: z.string().trim().min(1).max(TITLE_TEXT.MAX_LENGTH).optional(),
     year: yearSchema.optional(),
     type: mediaTypeSchema.optional(),
   })
@@ -57,7 +64,7 @@ export const importMovieBody = z
 
 // POST /movies/sync  (importa en bloque los resultados de una búsqueda)
 export const syncMoviesBody = z.object({
-  q: z.string().trim().min(1, 'q es obligatorio'),
+  q: z.string().trim().min(1, 'q es obligatorio').max(SEARCH_TEXT.MAX_LENGTH),
   type: mediaTypeSchema.optional(),
   year: yearSchema.optional(),
   page: z.coerce.number().int().min(1).max(100).default(1),

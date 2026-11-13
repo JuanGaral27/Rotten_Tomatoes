@@ -13,7 +13,7 @@ import {
   IonToolbar,
   ModalController,
 } from '@ionic/angular';
-import { PASSWORD, ROLE_OPTIONS, USERNAME } from '../../core/constants/app.constants';
+import { EMAIL, PASSWORD, ROLE_OPTIONS, USERNAME } from '../../core/constants/app.constants';
 import { Role, UpdateUserPayload, User } from '../../core/models/user.models';
 import { UiService } from '../../core/services/ui.service';
 import { UserService } from '../../core/services/user.service';
@@ -48,13 +48,13 @@ import { getErrorMessage } from '../../core/utils/error-message';
     <ion-content class="ion-padding">
       <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
         <div>
-          <ion-input formControlName="username" label="Nombre de usuario" labelPlacement="floating" fill="outline" />
+          <ion-input formControlName="username" [maxlength]="usernameRules.MAX_LENGTH" label="Nombre de usuario" labelPlacement="floating" fill="outline" />
           @if (form.controls.username.touched && form.controls.username.invalid) {
             <p class="form-error">{{ rules.MIN_LENGTH }}-{{ rules.MAX_LENGTH }} caracteres (letras, números, . - _)</p>
           }
         </div>
         <div>
-          <ion-input type="email" formControlName="email" label="Correo electrónico" labelPlacement="floating" fill="outline" />
+          <ion-input type="email" formControlName="email" [maxlength]="emailRules.MAX_LENGTH" label="Correo electrónico" labelPlacement="floating" fill="outline" />
           @if (form.controls.email.touched && form.controls.email.invalid) {
             <p class="form-error">Ingresa un correo válido</p>
           }
@@ -67,9 +67,10 @@ import { getErrorMessage } from '../../core/utils/error-message';
             labelPlacement="floating"
             fill="outline"
             autocomplete="new-password"
+            [maxlength]="passwordRules.MAX_LENGTH"
           />
           @if (form.controls.password.touched && form.controls.password.invalid) {
-            <p class="form-error">Mínimo {{ passwordRules.MIN_LENGTH }} caracteres</p>
+            <p class="form-error">Entre {{ passwordRules.MIN_LENGTH }} y {{ passwordRules.MAX_LENGTH }} caracteres</p>
           }
         </div>
         <ion-select formControlName="role" label="Rol" labelPlacement="floating" fill="outline" interface="popover">
@@ -119,6 +120,8 @@ export class UserFormModalComponent implements OnInit {
   protected readonly roles = ROLE_OPTIONS;
   protected readonly rules = USERNAME;
   protected readonly passwordRules = PASSWORD;
+  protected readonly emailRules = EMAIL;
+  protected readonly usernameRules = USERNAME;
   protected readonly saving = signal(false);
   protected get isEdit(): boolean {
     return this.user !== null;
@@ -129,7 +132,7 @@ export class UserFormModalComponent implements OnInit {
       '',
       [Validators.required, Validators.minLength(USERNAME.MIN_LENGTH), Validators.maxLength(USERNAME.MAX_LENGTH), Validators.pattern(USERNAME.PATTERN)],
     ],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.maxLength(EMAIL.MAX_LENGTH), Validators.pattern(EMAIL.PATTERN)]],
     password: ['', [Validators.minLength(PASSWORD.MIN_LENGTH), Validators.maxLength(PASSWORD.MAX_LENGTH)]],
     role: this.fb.control<Role>('user'),
   });
@@ -150,6 +153,9 @@ export class UserFormModalComponent implements OnInit {
   }
 
   protected submit(): void {
+    // Evita el doble envío (doble toque, o Enter del teclado + botón).
+    if (this.saving()) return;
+
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;

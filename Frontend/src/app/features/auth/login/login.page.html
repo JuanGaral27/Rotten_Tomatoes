@@ -17,9 +17,10 @@
           fill="outline"
           autocomplete="email"
           inputmode="email"
+          [maxlength]="emailRules.MAX_LENGTH"
         />
         @if (form.controls.email.touched && form.controls.email.invalid) {
-          <p class="form-error">Ingresa un correo válido</p>
+          <p class="form-error">Correo inválido. Ejemplo: nombre@dominio.com</p>
         }
       </div>
 
@@ -31,6 +32,7 @@
           labelPlacement="floating"
           fill="outline"
           autocomplete="current-password"
+          [maxlength]="passwordRules.MAX_LENGTH"
         >
           <ion-input-password-toggle slot="end" />
         </ion-input>

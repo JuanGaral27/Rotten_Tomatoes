@@ -3,7 +3,7 @@
     <ion-title>Usuarios</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar placeholder="Buscar por nombre o correo" [debounce]="400" (ionInput)="onSearch($event)" />
+    <ion-searchbar [appMaxLength]="searchRules.MAX_LENGTH" placeholder="Buscar por nombre o correo" [debounce]="400" (ionInput)="onSearch($event)" />
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment [value]="role()" (ionChange)="onRole($event)">

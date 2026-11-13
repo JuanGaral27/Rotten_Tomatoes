@@ -34,7 +34,7 @@ type RoleFilter = Role | 'all';
 const PAGE_SIZE = 15;
 
 /** CRUD de usuarios (solo administradores). */
-import { SearchbarMaxLengthDirective } from '../../shared/directives/shared/directives/searchbar-max-length.directive';
+import { SearchbarMaxLengthDirective } from '../../shared/directives/searchbar-max-length.directive';
 @Component({
   selector: 'app-admin-users',
   imports: [

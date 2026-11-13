@@ -38,7 +38,7 @@ type TypeChoice = MediaType | 'all';
  * Explorar. Sin texto: muestra las películas más populares de NUESTRA base de datos con una barra de categorías.
  * Con texto: busca películas/series REALES en OMDb; al abrir una, el backend la guarda si no la tenía.
  */
-import { SearchbarMaxLengthDirective } from '../../shared/directives/shared/directives/searchbar-max-length.directive';
+import { SearchbarMaxLengthDirective } from '../../shared/directives/searchbar-max-length.directive';
 @Component({
   selector: 'app-discover',
   imports: [

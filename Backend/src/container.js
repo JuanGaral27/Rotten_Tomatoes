@@ -33,6 +33,8 @@ export const buildContainer = (overrides = {}) => {
   const movieService = new MovieService({ movieProvider, reviewService });
 
   return {
+    // Los scripts (ej: seed de películas) usan los servicios directamente, sin pasar por HTTP.
+    services: { movieService, reviewService, userService, authService },
     controllers: {
       authController: new AuthController({ authService }),
       userController: new UserController({ userService }),

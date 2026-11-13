@@ -174,6 +174,9 @@ export class MovieDetailPage {
   }
 
   protected submitReview(): void {
+    // Evita el doble envío (doble toque, o Enter del teclado + botón).
+    if (this.saving()) return;
+
     if (this.commentControl.invalid) {
       this.commentControl.markAsTouched();
       return;
