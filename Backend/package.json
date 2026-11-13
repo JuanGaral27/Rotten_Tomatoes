@@ -11,6 +11,7 @@
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "seed:admin": "node scripts/seed-admin.js",
+    "seed:movies": "node scripts/seed-movies.js",
     "postman:build": "node scripts/build-postman.mjs"
   },
   "license": "ISC",

@@ -348,5 +348,1701 @@
     "title": "Money Heist",
     "year": 2017,
     "type": "series"
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "type": "movie"
+  },
+  {
+    "title": "The Godfather",
+    "year": 1972,
+    "type": "movie"
+  },
+  {
+    "title": "The Dark Knight",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Pulp Fiction",
+    "year": 1994,
+    "type": "movie"
+  },
+  {
+    "title": "Forrest Gump",
+    "year": 1994,
+    "type": "movie"
+  },
+  {
+    "title": "Inception",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "Fight Club",
+    "year": 1999,
+    "type": "movie"
+  },
+  {
+    "title": "The Matrix",
+    "year": 1999,
+    "type": "movie"
+  },
+  {
+    "title": "Goodfellas",
+    "year": 1990,
+    "type": "movie"
+  },
+  {
+    "title": "Se7en",
+    "year": 1995,
+    "type": "movie"
+  },
+  {
+    "title": "Interstellar",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "The Silence of the Lambs",
+    "year": 1991,
+    "type": "movie"
+  },
+  {
+    "title": "Gladiator",
+    "year": 2000,
+    "type": "movie"
+  },
+  {
+    "title": "The Prestige",
+    "year": 2006,
+    "type": "movie"
+  },
+  {
+    "title": "Gone Girl",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Shutter Island",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "Parasite",
+    "year": 2019,
+    "type": "movie"
+  },
+  {
+    "title": "Joker",
+    "year": 2019,
+    "type": "movie"
+  },
+  {
+    "title": "Oppenheimer",
+    "year": 2023,
+    "type": "movie"
+  },
+  {
+    "title": "Dune",
+    "year": 2021,
+    "type": "movie"
+  },
+  {
+    "title": "Avengers: Endgame",
+    "year": 2019,
+    "type": "movie"
+  },
+  {
+    "title": "Mad Max: Fury Road",
+    "year": 2015,
+    "type": "movie"
+  },
+  {
+    "title": "John Wick",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Die Hard",
+    "year": 1988,
+    "type": "movie"
+  },
+  {
+    "title": "Terminator 2: Judgment Day",
+    "year": 1991,
+    "type": "movie"
+  },
+  {
+    "title": "Alien",
+    "year": 1979,
+    "type": "movie"
+  },
+  {
+    "title": "The Shining",
+    "year": 1980,
+    "type": "movie"
+  },
+  {
+    "title": "Get Out",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Hereditary",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "The Conjuring",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "Knives Out",
+    "year": 2019,
+    "type": "movie"
+  },
+  {
+    "title": "The Hangover",
+    "year": 2009,
+    "type": "movie"
+  },
+  {
+    "title": "Superbad",
+    "year": 2007,
+    "type": "movie"
+  },
+  {
+    "title": "Spirited Away",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Toy Story",
+    "year": 1995,
+    "type": "movie"
+  },
+  {
+    "title": "Coco",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Inside Out",
+    "year": 2015,
+    "type": "movie"
+  },
+  {
+    "title": "Up",
+    "year": 2009,
+    "type": "movie"
+  },
+  {
+    "title": "The Lion King",
+    "year": 1994,
+    "type": "movie"
+  },
+  {
+    "title": "La La Land",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Whiplash",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "The Wolf of Wall Street",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "Prisoners",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "Zodiac",
+    "year": 2007,
+    "type": "movie"
+  },
+  {
+    "title": "Memento",
+    "year": 2000,
+    "type": "movie"
+  },
+  {
+    "title": "Mulholland Drive",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Black Swan",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "Blade Runner 2049",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Spider-Man: Into the Spider-Verse",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "Top Gun: Maverick",
+    "year": 2022,
+    "type": "movie"
+  },
+  {
+    "title": "Breaking Bad",
+    "year": 2008,
+    "type": "series"
+  },
+  {
+    "title": "Game of Thrones",
+    "year": 2011,
+    "type": "series"
+  },
+  {
+    "title": "Stranger Things",
+    "year": 2016,
+    "type": "series"
+  },
+  {
+    "title": "The Wire",
+    "year": 2002,
+    "type": "series"
+  },
+  {
+    "title": "The Sopranos",
+    "year": 1999,
+    "type": "series"
+  },
+  {
+    "title": "Friends",
+    "year": 1994,
+    "type": "series"
+  },
+  {
+    "title": "The Office",
+    "year": 2005,
+    "type": "series"
+  },
+  {
+    "title": "Better Call Saul",
+    "year": 2015,
+    "type": "series"
+  },
+  {
+    "title": "Dark",
+    "year": 2017,
+    "type": "series"
+  },
+  {
+    "title": "Sherlock",
+    "year": 2010,
+    "type": "series"
+  },
+  {
+    "title": "Black Mirror",
+    "year": 2011,
+    "type": "series"
+  },
+  {
+    "title": "Chernobyl",
+    "year": 2019,
+    "type": "series"
+  },
+  {
+    "title": "True Detective",
+    "year": 2014,
+    "type": "series"
+  },
+  {
+    "title": "Peaky Blinders",
+    "year": 2013,
+    "type": "series"
+  },
+  {
+    "title": "The Last of Us",
+    "year": 2023,
+    "type": "series"
+  },
+  {
+    "title": "Squid Game",
+    "year": 2021,
+    "type": "series"
+  },
+  {
+    "title": "Narcos",
+    "year": 2015,
+    "type": "series"
+  },
+  {
+    "title": "Mindhunter",
+    "year": 2017,
+    "type": "series"
+  },
+  {
+    "title": "Fargo",
+    "year": 2014,
+    "type": "series"
+  },
+  {
+    "title": "Money Heist",
+    "year": 2017,
+    "type": "series"
+  },
+  {
+    "title": "Saving Private Ryan",
+    "year": 1998,
+    "type": "movie"
+  },
+  {
+    "title": "Schindler's List",
+    "year": 1993,
+    "type": "movie"
+  },
+  {
+    "title": "Back to the Future",
+    "year": 1985,
+    "type": "movie"
+  },
+  {
+    "title": "Aliens",
+    "year": 1986,
+    "type": "movie"
+  },
+  {
+    "title": "Blade Runner",
+    "year": 1982,
+    "type": "movie"
+  },
+  {
+    "title": "Dunkirk",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Tenet",
+    "year": 2020,
+    "type": "movie"
+  },
+  {
+    "title": "Django Unchained",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "Inglourious Basterds",
+    "year": 2009,
+    "type": "movie"
+  },
+  {
+    "title": "Kill Bill: Vol. 1",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "Reservoir Dogs",
+    "year": 1992,
+    "type": "movie"
+  },
+  {
+    "title": "The Departed",
+    "year": 2006,
+    "type": "movie"
+  },
+  {
+    "title": "Titanic",
+    "year": 1997,
+    "type": "movie"
+  },
+  {
+    "title": "Avatar",
+    "year": 2009,
+    "type": "movie"
+  },
+  {
+    "title": "Avatar: The Way of Water",
+    "year": 2022,
+    "type": "movie"
+  },
+  {
+    "title": "Jurassic Park",
+    "year": 1993,
+    "type": "movie"
+  },
+  {
+    "title": "Jaws",
+    "year": 1975,
+    "type": "movie"
+  },
+  {
+    "title": "E.T. the Extra-Terrestrial",
+    "year": 1982,
+    "type": "movie"
+  },
+  {
+    "title": "Raiders of the Lost Ark",
+    "year": 1981,
+    "type": "movie"
+  },
+  {
+    "title": "Star Wars",
+    "year": 1977,
+    "type": "movie"
+  },
+  {
+    "title": "The Empire Strikes Back",
+    "year": 1980,
+    "type": "movie"
+  },
+  {
+    "title": "Return of the Jedi",
+    "year": 1983,
+    "type": "movie"
+  },
+  {
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "The Lord of the Rings: The Two Towers",
+    "year": 2002,
+    "type": "movie"
+  },
+  {
+    "title": "The Hobbit: An Unexpected Journey",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "year": 2011,
+    "type": "movie"
+  },
+  {
+    "title": "The Hunger Games",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "Twilight",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Spider-Man",
+    "year": 2002,
+    "type": "movie"
+  },
+  {
+    "title": "Spider-Man 2",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Spider-Man: No Way Home",
+    "year": 2021,
+    "type": "movie"
+  },
+  {
+    "title": "Iron Man",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "The Avengers",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "Avengers: Infinity War",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "Black Panther",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "Thor: Ragnarok",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Captain America: The Winter Soldier",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Guardians of the Galaxy",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Doctor Strange",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Deadpool",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Logan",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Batman Begins",
+    "year": 2005,
+    "type": "movie"
+  },
+  {
+    "title": "The Dark Knight Rises",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "The Batman",
+    "year": 2022,
+    "type": "movie"
+  },
+  {
+    "title": "Man of Steel",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "Wonder Woman",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Aquaman",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "Shazam!",
+    "year": 2019,
+    "type": "movie"
+  },
+  {
+    "title": "John Wick: Chapter 4",
+    "year": 2023,
+    "type": "movie"
+  },
+  {
+    "title": "Mission: Impossible - Fallout",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "Casino Royale",
+    "year": 2006,
+    "type": "movie"
+  },
+  {
+    "title": "Skyfall",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "No Time to Die",
+    "year": 2021,
+    "type": "movie"
+  },
+  {
+    "title": "Fast Five",
+    "year": 2011,
+    "type": "movie"
+  },
+  {
+    "title": "The Bourne Identity",
+    "year": 2002,
+    "type": "movie"
+  },
+  {
+    "title": "Taken",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Rocky",
+    "year": 1976,
+    "type": "movie"
+  },
+  {
+    "title": "Creed",
+    "year": 2015,
+    "type": "movie"
+  },
+  {
+    "title": "Gran Torino",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Million Dollar Baby",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "The Green Mile",
+    "year": 1999,
+    "type": "movie"
+  },
+  {
+    "title": "The Pianist",
+    "year": 2002,
+    "type": "movie"
+  },
+  {
+    "title": "Braveheart",
+    "year": 1995,
+    "type": "movie"
+  },
+  {
+    "title": "The Last Samurai",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "300",
+    "year": 2006,
+    "type": "movie"
+  },
+  {
+    "title": "Troy",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "Shrek",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Toy Story 3",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "Finding Nemo",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "WALL-E",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Ratatouille",
+    "year": 2007,
+    "type": "movie"
+  },
+  {
+    "title": "The Incredibles",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Monsters, Inc.",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Frozen",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "Moana",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Encanto",
+    "year": 2021,
+    "type": "movie"
+  },
+  {
+    "title": "Zootopia",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "How to Train Your Dragon",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "Kung Fu Panda",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Despicable Me",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "My Neighbor Totoro",
+    "year": 1988,
+    "type": "movie"
+  },
+  {
+    "title": "Princess Mononoke",
+    "year": 1997,
+    "type": "movie"
+  },
+  {
+    "title": "Your Name.",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Akira",
+    "year": 1988,
+    "type": "movie"
+  },
+  {
+    "title": "Howl's Moving Castle",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Aladdin",
+    "year": 1992,
+    "type": "movie"
+  },
+  {
+    "title": "Beauty and the Beast",
+    "year": 1991,
+    "type": "movie"
+  },
+  {
+    "title": "The Little Mermaid",
+    "year": 1989,
+    "type": "movie"
+  },
+  {
+    "title": "Mulan",
+    "year": 1998,
+    "type": "movie"
+  },
+  {
+    "title": "Tangled",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "Big Hero 6",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Soul",
+    "year": 2020,
+    "type": "movie"
+  },
+  {
+    "title": "The Matrix Reloaded",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "Minority Report",
+    "year": 2002,
+    "type": "movie"
+  },
+  {
+    "title": "I, Robot",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "The Terminator",
+    "year": 1984,
+    "type": "movie"
+  },
+  {
+    "title": "RoboCop",
+    "year": 1987,
+    "type": "movie"
+  },
+  {
+    "title": "Total Recall",
+    "year": 1990,
+    "type": "movie"
+  },
+  {
+    "title": "Ex Machina",
+    "year": 2015,
+    "type": "movie"
+  },
+  {
+    "title": "Arrival",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Dune: Part Two",
+    "year": 2024,
+    "type": "movie"
+  },
+  {
+    "title": "Edge of Tomorrow",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Gravity",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "The Martian",
+    "year": 2015,
+    "type": "movie"
+  },
+  {
+    "title": "Prometheus",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "District 9",
+    "year": 2009,
+    "type": "movie"
+  },
+  {
+    "title": "Looper",
+    "year": 2012,
+    "type": "movie"
+  },
+  {
+    "title": "Children of Men",
+    "year": 2006,
+    "type": "movie"
+  },
+  {
+    "title": "A Quiet Place",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "It",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Psycho",
+    "year": 1960,
+    "type": "movie"
+  },
+  {
+    "title": "The Exorcist",
+    "year": 1973,
+    "type": "movie"
+  },
+  {
+    "title": "Scream",
+    "year": 1996,
+    "type": "movie"
+  },
+  {
+    "title": "Halloween",
+    "year": 1978,
+    "type": "movie"
+  },
+  {
+    "title": "A Nightmare on Elm Street",
+    "year": 1984,
+    "type": "movie"
+  },
+  {
+    "title": "The Sixth Sense",
+    "year": 1999,
+    "type": "movie"
+  },
+  {
+    "title": "The Others",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Nightcrawler",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "No Country for Old Men",
+    "year": 2007,
+    "type": "movie"
+  },
+  {
+    "title": "There Will Be Blood",
+    "year": 2007,
+    "type": "movie"
+  },
+  {
+    "title": "The Social Network",
+    "year": 2010,
+    "type": "movie"
+  },
+  {
+    "title": "The Godfather Part II",
+    "year": 1974,
+    "type": "movie"
+  },
+  {
+    "title": "Scarface",
+    "year": 1983,
+    "type": "movie"
+  },
+  {
+    "title": "Casino",
+    "year": 1995,
+    "type": "movie"
+  },
+  {
+    "title": "Taxi Driver",
+    "year": 1976,
+    "type": "movie"
+  },
+  {
+    "title": "Raging Bull",
+    "year": 1980,
+    "type": "movie"
+  },
+  {
+    "title": "Apocalypse Now",
+    "year": 1979,
+    "type": "movie"
+  },
+  {
+    "title": "Full Metal Jacket",
+    "year": 1987,
+    "type": "movie"
+  },
+  {
+    "title": "Platoon",
+    "year": 1986,
+    "type": "movie"
+  },
+  {
+    "title": "1917",
+    "year": 2019,
+    "type": "movie"
+  },
+  {
+    "title": "Hacksaw Ridge",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Casablanca",
+    "year": 1942,
+    "type": "movie"
+  },
+  {
+    "title": "Citizen Kane",
+    "year": 1941,
+    "type": "movie"
+  },
+  {
+    "title": "Vertigo",
+    "year": 1958,
+    "type": "movie"
+  },
+  {
+    "title": "Rear Window",
+    "year": 1954,
+    "type": "movie"
+  },
+  {
+    "title": "Some Like It Hot",
+    "year": 1959,
+    "type": "movie"
+  },
+  {
+    "title": "12 Angry Men",
+    "year": 1957,
+    "type": "movie"
+  },
+  {
+    "title": "Lawrence of Arabia",
+    "year": 1962,
+    "type": "movie"
+  },
+  {
+    "title": "Seven Samurai",
+    "year": 1954,
+    "type": "movie"
+  },
+  {
+    "title": "The Good, the Bad and the Ugly",
+    "year": 1966,
+    "type": "movie"
+  },
+  {
+    "title": "City of God",
+    "year": 2002,
+    "type": "movie"
+  },
+  {
+    "title": "Amélie",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Pan's Labyrinth",
+    "year": 2006,
+    "type": "movie"
+  },
+  {
+    "title": "Life Is Beautiful",
+    "year": 1997,
+    "type": "movie"
+  },
+  {
+    "title": "Cinema Paradiso",
+    "year": 1988,
+    "type": "movie"
+  },
+  {
+    "title": "Oldboy",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "The Intouchables",
+    "year": 2011,
+    "type": "movie"
+  },
+  {
+    "title": "Amores perros",
+    "year": 2000,
+    "type": "movie"
+  },
+  {
+    "title": "Y tu mamá también",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Roma",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "The Shape of Water",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Birdman",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "The Revenant",
+    "year": 2015,
+    "type": "movie"
+  },
+  {
+    "title": "Everything Everywhere All at Once",
+    "year": 2022,
+    "type": "movie"
+  },
+  {
+    "title": "Barbie",
+    "year": 2023,
+    "type": "movie"
+  },
+  {
+    "title": "Mamma Mia!",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Grease",
+    "year": 1978,
+    "type": "movie"
+  },
+  {
+    "title": "The Greatest Showman",
+    "year": 2017,
+    "type": "movie"
+  },
+  {
+    "title": "Bohemian Rhapsody",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "A Star Is Born",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "Dirty Dancing",
+    "year": 1987,
+    "type": "movie"
+  },
+  {
+    "title": "Step Brothers",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Anchorman: The Legend of Ron Burgundy",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Mean Girls",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Bridesmaids",
+    "year": 2011,
+    "type": "movie"
+  },
+  {
+    "title": "Ferris Bueller's Day Off",
+    "year": 1986,
+    "type": "movie"
+  },
+  {
+    "title": "Home Alone",
+    "year": 1990,
+    "type": "movie"
+  },
+  {
+    "title": "Mrs. Doubtfire",
+    "year": 1993,
+    "type": "movie"
+  },
+  {
+    "title": "The Truman Show",
+    "year": 1998,
+    "type": "movie"
+  },
+  {
+    "title": "Groundhog Day",
+    "year": 1993,
+    "type": "movie"
+  },
+  {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Her",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "Lost in Translation",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "The Notebook",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Pride & Prejudice",
+    "year": 2005,
+    "type": "movie"
+  },
+  {
+    "title": "Crazy Rich Asians",
+    "year": 2018,
+    "type": "movie"
+  },
+  {
+    "title": "Glass Onion: A Knives Out Mystery",
+    "year": 2022,
+    "type": "movie"
+  },
+  {
+    "title": "The Grand Budapest Hotel",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Moonlight",
+    "year": 2016,
+    "type": "movie"
+  },
+  {
+    "title": "Slumdog Millionaire",
+    "year": 2008,
+    "type": "movie"
+  },
+  {
+    "title": "Rain Man",
+    "year": 1988,
+    "type": "movie"
+  },
+  {
+    "title": "Good Will Hunting",
+    "year": 1997,
+    "type": "movie"
+  },
+  {
+    "title": "The Imitation Game",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "A Beautiful Mind",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "The Theory of Everything",
+    "year": 2014,
+    "type": "movie"
+  },
+  {
+    "title": "Dead Poets Society",
+    "year": 1989,
+    "type": "movie"
+  },
+  {
+    "title": "The Karate Kid",
+    "year": 1984,
+    "type": "movie"
+  },
+  {
+    "title": "The Goonies",
+    "year": 1985,
+    "type": "movie"
+  },
+  {
+    "title": "Stand by Me",
+    "year": 1986,
+    "type": "movie"
+  },
+  {
+    "title": "Ghostbusters",
+    "year": 1984,
+    "type": "movie"
+  },
+  {
+    "title": "Indiana Jones and the Last Crusade",
+    "year": 1989,
+    "type": "movie"
+  },
+  {
+    "title": "Black Hawk Down",
+    "year": 2001,
+    "type": "movie"
+  },
+  {
+    "title": "Ford v Ferrari",
+    "year": 2019,
+    "type": "movie"
+  },
+  {
+    "title": "Rush",
+    "year": 2013,
+    "type": "movie"
+  },
+  {
+    "title": "Moneyball",
+    "year": 2011,
+    "type": "movie"
+  },
+  {
+    "title": "The Pursuit of Happyness",
+    "year": 2006,
+    "type": "movie"
+  },
+  {
+    "title": "Catch Me If You Can",
+    "year": 2002,
+    "type": "movie"
+  },
+  {
+    "title": "The Terminal",
+    "year": 2004,
+    "type": "movie"
+  },
+  {
+    "title": "Cast Away",
+    "year": 2000,
+    "type": "movie"
+  },
+  {
+    "title": "Big Fish",
+    "year": 2003,
+    "type": "movie"
+  },
+  {
+    "title": "Edward Scissorhands",
+    "year": 1990,
+    "type": "movie"
+  },
+  {
+    "title": "Beetlejuice",
+    "year": 1988,
+    "type": "movie"
+  },
+  {
+    "title": "Coraline",
+    "year": 2009,
+    "type": "movie"
+  },
+  {
+    "title": "Fantastic Mr. Fox",
+    "year": 2009,
+    "type": "movie"
+  },
+  {
+    "title": "Superman",
+    "year": 2025,
+    "type": "movie"
+  },
+  {
+    "title": "The Fantastic Four: First Steps",
+    "year": 2025,
+    "type": "movie"
+  },
+  {
+    "title": "Wicked",
+    "year": 2024,
+    "type": "movie"
+  },
+  {
+    "title": "Inside Out 2",
+    "year": 2024,
+    "type": "movie"
+  },
+  {
+    "title": "Deadpool & Wolverine",
+    "year": 2024,
+    "type": "movie"
+  },
+  {
+    "title": "Gladiator II",
+    "year": 2024,
+    "type": "movie"
+  },
+  {
+    "title": "Sinners",
+    "year": 2025,
+    "type": "movie"
+  },
+  {
+    "title": "Seinfeld",
+    "year": 1989,
+    "type": "series"
+  },
+  {
+    "title": "The Simpsons",
+    "year": 1989,
+    "type": "series"
+  },
+  {
+    "title": "South Park",
+    "year": 1997,
+    "type": "series"
+  },
+  {
+    "title": "Rick and Morty",
+    "year": 2013,
+    "type": "series"
+  },
+  {
+    "title": "BoJack Horseman",
+    "year": 2014,
+    "type": "series"
+  },
+  {
+    "title": "Band of Brothers",
+    "year": 2001,
+    "type": "series"
+  },
+  {
+    "title": "The Crown",
+    "year": 2016,
+    "type": "series"
+  },
+  {
+    "title": "The Mandalorian",
+    "year": 2019,
+    "type": "series"
+  },
+  {
+    "title": "The Boys",
+    "year": 2019,
+    "type": "series"
+  },
+  {
+    "title": "Succession",
+    "year": 2018,
+    "type": "series"
+  },
+  {
+    "title": "Ozark",
+    "year": 2017,
+    "type": "series"
+  },
+  {
+    "title": "House of Cards",
+    "year": 2013,
+    "type": "series"
+  },
+  {
+    "title": "Dexter",
+    "year": 2006,
+    "type": "series"
+  },
+  {
+    "title": "Lost",
+    "year": 2004,
+    "type": "series"
+  },
+  {
+    "title": "The Walking Dead",
+    "year": 2010,
+    "type": "series"
+  },
+  {
+    "title": "House of the Dragon",
+    "year": 2022,
+    "type": "series"
+  },
+  {
+    "title": "Vikings",
+    "year": 2013,
+    "type": "series"
+  },
+  {
+    "title": "Westworld",
+    "year": 2016,
+    "type": "series"
+  },
+  {
+    "title": "Mr. Robot",
+    "year": 2015,
+    "type": "series"
+  },
+  {
+    "title": "Euphoria",
+    "year": 2019,
+    "type": "series"
+  },
+  {
+    "title": "The Bear",
+    "year": 2022,
+    "type": "series"
+  },
+  {
+    "title": "Wednesday",
+    "year": 2022,
+    "type": "series"
+  },
+  {
+    "title": "Arcane",
+    "year": 2021,
+    "type": "series"
+  },
+  {
+    "title": "Avatar: The Last Airbender",
+    "year": 2005,
+    "type": "series"
+  },
+  {
+    "title": "Attack on Titan",
+    "year": 2013,
+    "type": "series"
+  },
+  {
+    "title": "Death Note",
+    "year": 2006,
+    "type": "series"
+  },
+  {
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "year": 2009,
+    "type": "series"
+  },
+  {
+    "title": "Cowboy Bebop",
+    "year": 1998,
+    "type": "series"
+  },
+  {
+    "title": "Naruto",
+    "year": 2002,
+    "type": "series"
+  },
+  {
+    "title": "One Piece",
+    "year": 1999,
+    "type": "series"
+  },
+  {
+    "title": "Demon Slayer: Kimetsu no Yaiba",
+    "year": 2019,
+    "type": "series"
+  },
+  {
+    "title": "Jujutsu Kaisen",
+    "year": 2020,
+    "type": "series"
+  },
+  {
+    "title": "Hunter x Hunter",
+    "year": 2011,
+    "type": "series"
+  },
+  {
+    "title": "Brooklyn Nine-Nine",
+    "year": 2013,
+    "type": "series"
+  },
+  {
+    "title": "Parks and Recreation",
+    "year": 2009,
+    "type": "series"
+  },
+  {
+    "title": "How I Met Your Mother",
+    "year": 2005,
+    "type": "series"
+  },
+  {
+    "title": "The Big Bang Theory",
+    "year": 2007,
+    "type": "series"
+  },
+  {
+    "title": "Modern Family",
+    "year": 2009,
+    "type": "series"
+  },
+  {
+    "title": "Prison Break",
+    "year": 2005,
+    "type": "series"
+  },
+  {
+    "title": "House",
+    "year": 2004,
+    "type": "series"
+  },
+  {
+    "title": "Grey's Anatomy",
+    "year": 2005,
+    "type": "series"
+  },
+  {
+    "title": "Supernatural",
+    "year": 2005,
+    "type": "series"
+  },
+  {
+    "title": "Gilmore Girls",
+    "year": 2000,
+    "type": "series"
+  },
+  {
+    "title": "The Witcher",
+    "year": 2019,
+    "type": "series"
+  },
+  {
+    "title": "Loki",
+    "year": 2021,
+    "type": "series"
+  },
+  {
+    "title": "WandaVision",
+    "year": 2021,
+    "type": "series"
+  },
+  {
+    "title": "Andor",
+    "year": 2022,
+    "type": "series"
+  },
+  {
+    "title": "Severance",
+    "year": 2022,
+    "type": "series"
+  },
+  {
+    "title": "Shogun",
+    "year": 2024,
+    "type": "series"
+  },
+  {
+    "title": "The Penguin",
+    "year": 2024,
+    "type": "series"
+  },
+  {
+    "title": "Baby Reindeer",
+    "year": 2024,
+    "type": "series"
+  },
+  {
+    "title": "Adolescence",
+    "year": 2025,
+    "type": "series"
+  },
+  {
+    "title": "The White Lotus",
+    "year": 2021,
+    "type": "series"
+  },
+  {
+    "title": "Ted Lasso",
+    "year": 2020,
+    "type": "series"
+  },
+  {
+    "title": "Yellowstone",
+    "year": 2018,
+    "type": "series"
   }
+
 ]
