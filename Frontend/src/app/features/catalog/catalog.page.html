@@ -81,8 +81,7 @@
 
 <ion-modal
   [isOpen]="filtersOpen()"
-  [initialBreakpoint]="0.9"
-  [breakpoints]="[0, 0.9]"
+  [canDismiss]="true"
   (didDismiss)="filtersOpen.set(false)"
 >
   <ng-template>
